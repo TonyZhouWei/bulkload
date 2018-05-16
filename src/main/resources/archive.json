@@ -1,0 +1,14 @@
+{
+  "archive":
+  [
+    {"table":"CM_SUBS_GPRSFLOW","fileName":"gprsFlow.parquet","filterColumn":"STATDATE","dataType":"data"},
+    {"table":"CM_SUBS_SMSFLOW","fileName":"smsFlow.parquet","filterColumn":"STATDATE","dataType":"data"}
+  ],
+  "comments":
+  [
+    {" property":"table","comment":"表名"},
+    {" property":"fileName","comment":"HDFS上对应的文件名"},
+    {" property":"filterColumn","comment":"决定归档范围的字段（时间字段）"},
+    {" property":"dataType","comment":"数据类型，BASE 基础数据，目录为DATA目录；RESULT 结果数据，目录为 OUTPUT"}
+  ]
+}

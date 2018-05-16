@@ -1,0 +1,20 @@
+{
+  "tables":
+  [
+    {"tablename":"STATS_EC_SUBS_FLOW","familymap":"info:CUSTID,APN,REMARK,ICCID,STATSDATE,MSISDN|quota:GPRSTOTAL,GPRSUSEDFLOW,AVGGPRSFLOW,AVGPOOLFLOW,SURPLUSGPRSFLOW,EXCEEDGPRSFLOW,SMSTOTAL,SMSUSEDFLOWMO,SURPLUSSMSFLOW,EXCEEDSMSFLOW","rowkeystr":"CUSTID,APN,MSISDN","isclear":"true"},
+    {"tablename":"STATS_EC_GROUP_SUBS_FLOW","familymap":"info:CUSTID,APN,GROUPID,REMARK,MSISDN,ICCID,STATSDATE|quota:GPRSTOTAL,GPRSUSEDFLOW,USEDGPRSCNT,AVGGPRSFLOW,SURPLUSGPRSFLOW,EXCEEDGPRSFLOW,SMSTOTAL,SMSUSEDFLOWMO,SURPLUSSMSFLOW,EXCEEDSMSFLOW","rowkeystr":"GROUPID,APN,MSISDN","isclear":"true"},
+    {"tablename":"STATS_SUBS_FLOW_DAY","familymap":"info:MSISDN,ECID,APN,PROVINCEID,REMARK,ICCID,STATSDATE,CREATEDATE|quota:GPRSTOTAL,GPRSUSEDFLOW,SURPLUSGPRSFLOW,SMSTOTAL,SMSUSEDFLOW,SURPLUSSMSFLOW","rowkeystr":"STATSDATE,ECID,APN,MSISDN"},
+    {"tablename":"STATS_EC_TM_FLOW_MONTH","familymap":"info:CUSTID,MSISDN,REMARK,ICCID,STATSDATE,PROVINCEID,APN,STATPERIOD,CREATEDATE|quota:GPRSTOTAL,GPRSUSEDFLOW,SURPLUSGPRSFLOW,SMSTOTAL,SMSUSEDFLOW,SURPLUSSMSFLOW","rowkeystr":"STATSDATE,CUSTID,APN,MSISDN"},
+    {"tablename":"smsFlow","familymap":"info:MSISDN,STATDATE,OPRDATE,SMSFLOW_STANDARD,SMSFLOW_CUSTOMIZE|partition:P_STATDATE","rowkeystr":"MSISDN,STATDATE"}
+  ],
+  "comments":
+  [
+    {" property":"tablename","comment":"必填：入口参数，表示要写入hbase的表"},
+    {" property":"htable","comment":"选填：表示要写入Hbase 中的表名，默认与 tablenam 参数相同"},
+    {" property":"filename","comment":"选填：表示要写入Hbase的文件名称，默认与 tablename 参数相同"},
+    {" property":"familymap","comment":"必填：字段与列簇的对应关系 格式如下： 列:字段名称(,分隔)|列:字段名称(,分隔)|..."},
+    {" property":"rowkeystr","comment":"必填：写入数据的 rowkey组成，多个字段以',' 分隔"},
+    {" property":"concatestr","comment":"选填：多个字段组成 rowkey 时 ，字段之前的拼接字符串"},
+    {" property":"isclear","comment":"选填：写入前是否清空表 false|true 默认 为false"}
+  ]
+}

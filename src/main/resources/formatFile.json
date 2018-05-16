@@ -1,0 +1,48 @@
+{
+     "tables":
+          [
+            {"table":"SA_DB_PROVINCE","target":"saDbProvince","mode":"overwrite"},
+            {"table":"PC_PROD_COMMINFO","target":"pcProdComminfo","mode":"overwrite"},
+            {"table":"PC_PROD_GPRSSMSDEF","target":"pcProdGprsSmsDef","mode":"overwrite"},
+            {"table":"CM_SUBS_SUBSCRIBER","expression":"(select SUBSID,ECSUBSID,PROVINCEID,MSISDN,ICCID,IMSI,STARTDATE,STATUS,STATUSDATE,REMARK,MODIFYTIME,CUSTID,ECCUSTID,GROUPBELONG,CARDTYPE,ACTIVATIONTIME from CM_SUBS_SUBSCRIBER) t","target":"subscriber","mode":"overwrite","partitionNum":"20"},
+            {"table":"CM_SUBS_SUBSCRIBER_DISUSER","target":"subscriberDisuser","mode":"overwrite"},
+            {"table":"CM_SUBS_PRODUCT","expression":"( select OID,PROVINCEID,SUBSID,PRODID,STARTDATE,STATUS,PRODINSTID,PRODINSTEXPTIME,PKGPRODID from CM_SUBS_PRODUCT) t","target":"cmSubsProduct_f","mode":"overwrite","partitionNum":"20","partitionColumn":"OID","numPartitions":"200","fetchSize":"1000000","lowerBound":"1","upperBound":"200000000000"},
+            {"table":"CM_SUBS_PRODUCT_DISUSER","expression":"(select rownum as RN ,a.* from CM_SUBS_PRODUCT_DISUSER a) t","target":"cmSubsProductDisuser","mode":"overwrite","partitionColumn":"RN","numPartitions":"12","fetchSize":"1000000","lowerBound":"1","upperBound":"50000000"},
+            {"table":"CM_SUBS_ECPRODSUBSINFO","target":"cmSubsEcprodsubsInfo","mode":"overwrite"},
+            {"table":"CM_SUBS_ECPRODUCT","target":"cmSubsEcproduct","mode":"overwrite"},
+            {"table":"CM_SUBS_PRODUCTMAIN","expression":"(select rownum as RN , a.* from CM_SUBS_PRODUCTMAIN a) t","target":"cmSubsProductMain","mode":"overwrite","partitionColumn":"RN","numPartitions":"30","fetchSize":"1000000","lowerBound":"1","upperBound":"100000000"},
+            {"table":"SA_DB_PROVINCESWITCH","target":"saDbProvinceSwitch","mode":"overwrite"},
+            {"table":"CM_CU_CUSTOMER","target":"cmCuCustomer","mode":"overwrite"},
+            {"table":"CM_CU_ECUSTOMER","target":"cmCuEcustomer","mode":"overwrite"},
+            {"table":"CM_SUBS_NETSTATUSHIS","target":"cmSubsNetstatushis","mode":"overwrite"},
+            {"table":"CM_SUBS_GPRSSTATUS","target":"cmSubsGprsStatus","mode":"overwrite"},
+            {"table":"CM_SUBS_PRODTOTAL","target":"prodtotal","mode":"overwrite"},
+            {"table":"APP_INFO_PLAT","target":"appInfoPlat","mode":"overwrite"},
+            {"table":"CM_SUBS_PRODSERVICE","expression":"(select rownum as RN ,a.* from CM_SUBS_PRODSERVICE a) t","target":"cmSubsProdService","mode":"overwrite","partitionColumn":"RN","numPartitions":"40","fetchSize":"1000000","lowerBound":"1","upperBound":"210000000"},
+            {"table":"CM_SUBS_SMSFLOW","sourcetype":"HDFS","target":"smsFlow","mode":"append","method":"getSmsFlow","partitionKey":"STATDATE"},
+            {"table":"CM_SUBS_GPRSFLOW","sourcetype":"HDFS","target":"gprsFlow","mode":"append","method":"getGprsFlow","partitionKey":"STATDATE"},
+            {"table":"CM_SUBS_SMS","sourcetype":"HDFS","target":"cmSubsSms","mode":"append","method":"getCmSubsSms"},
+            {"table":"CM_SUBS_SIMFLOWHIS","sourcetype":"HDFS","target":"cmSubsSimFlowHis","mode":"append","method":"getAccountInfo"},
+            {"table":"SA_DB_SYSPARAM","target":"saDbSysParam","mode":"overwrite"},
+            {"table":"SA_SR_OPERGROUP","target":"saSrOperGroup","mode":"overwrite"},
+    	    {"table":"SA_SR_OPER","target":"saSrOper","mode":"overwrite"},
+    	    {"table":"CM_CU_REGION","target":"cmCuRegion","mode":"overwrite"},
+    	    {"table":"SA_DB_DICTITEM","target":"saDbDictItem","mode":"overwrite"},
+            {"table":"CM_SUBS_PRODUCTHIS","target":"cmSubsProductHis","mode":"overwrite"},
+            {"table":"CM_GROUP_MANAGE","target":"cmGroupManage","mode":"overwrite"}
+          ],
+  "comments":
+          [
+            {" property":"table","comment":"必填：表名"},
+            {" property":"expression","comment":"选填：要处理的目标文件名或者表名, 默认值为 table 属性值"},
+            {" property":"sourcetype","comment":"选填：数据的来源 【数据库 DB ，HDFS HDFS】，默认值为 DB"},
+            {" property":"target","comment":"选填：要处理成的文件名称（放置到 HDFS上的对应目录) 默认值为 table 属性值"},
+            {" property":"mode","comment":"选填：写入的方式【append overwrite】，默认值为append"},
+            {" property":"partitionKey&partitionNum","comment":"写入时的分区 partitionKey(大写) 存在时使用 健分区 ，不存在时使用partitionNum确定分区个数，partitionNum 默认值为 1"},
+            {" property":"partitionColumn","comment":"选填：以分区的方式读取数据，读取数据时的分区键值，该键必须为数字类型"},
+            {" property":"lowerBound","comment":"选填：当partitionColumn 配置时生效，分区读取时，用于分区字段的最小值 默认为 1"},
+            {" property":"upperBound","comment":"选填：当partitionColumn 配置时生效，分区读取时，用于分区字段的最大值 默认为 1000000"},
+            {" property":"numPartitions","comment":"选填：当partitionColumn 配置时生效，分区读取时，分区个数 默认值： 100"},
+            {" property":"fetchSize","comment":"选填：每次取值的大小，默认为： 1000"}
+          ]
+ }

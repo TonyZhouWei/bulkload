@@ -1,0 +1,22 @@
+{
+  "clearData":
+  [
+    {"table":"CM_SUBS_GPRSFLOW","fileName":"gprsFlow.parquet","fileType":"dir","dataType":"data","isPartition":"y","clearType":"delete"},
+    {"table":"CM_SUBS_SMSFLOW","fileName":"smsFlow.parquet","fileType":"dir","dataType":"data","isPartition":"y","clearType":"delete"},
+    {"table":"SMS_STAT","sourceSubDir":"SMS","fileName":"SMS_STAT","targetSubDir":"SMS","fileType":"file","dataType":"pboss","isPartition":"n","clearType":"backup"},
+    {"table":"GPRS_STAT","sourceSubDir":"GPRS","fileName":"GPRS_STAT","targetSubDir":"GPRS","fileType":"file","dataType":"pboss","isPartition":"n","clearType":"backup"},
+    {"table":"Accounting","sourceSubDir":"smgw","fileName":"Accounting","targetSubDir":"smgw","fileType":"file","dataType":"pboss","isPartition":"n","clearType":"backup"},
+    {"table":"P2OMS","sourceSubDir":"cardaccount","fileName":"P2OMS","targetSubDir":"cardaccount","fileType":"file","dataType":"pboss","isPartition":"n","clearType":"backup"}
+  ],
+  "comments":
+  [
+    {" property":"table","comment":"表名"},
+    {" property":"fileName","comment":"HDFS上对应的文件名 parquet文件后面必须加上.parquet 其他文件 可写全名，也可写部分名称用于匹配"},
+    {" property":"fileType","comment":"文件的类型，dir 目录 file 文件"},
+    {" property":"dataType","comment":"数据类型，data 数据目录（data.path)；output 输出目录，目录为 out.path；pboss PBOSS文件存放目录 pboss.files"},
+    {" property":"isPartition","comment":"是否删除分区 y 是 n 否"},
+    {" property":"clearType","comment":"清理类型， delete 为直接删除  backup 为备份删除"},
+    {" property":"sourceSubDir","comment":"清理文件的子目录，默认值为空"},
+    {" property":"targetSubDir","comment":"清理文件备份的子目录，默认值为空"}
+  ]
+}

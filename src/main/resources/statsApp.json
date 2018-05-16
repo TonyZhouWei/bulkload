@@ -1,0 +1,38 @@
+{
+  "apps":
+  [
+    {"appName":"STATS_EC_TM_FLOW_MONTH","className":"StatsEcTmFlowMonth","methodName":"ecTmFlowMonth"},
+    {"appName":"STATS_EC_FLOW_MONTH","className":"StatsEcFlowMonth","methodName":"statsEcFlowMonth"},
+    {"appName":"STATS_EC_FLOW_DAY","className":"StatsEcFlowDay","methodName":"ecFlowDay"},
+    {"appName":"STATS_EC_SUBS_FLOW","className":"StatsEcSubsFlow","methodName":"ecSubsFlow"},
+    {"appName":"STATS_EC_GROUP_SUBS_FLOW","className":"StatsEcGroupSubsFlow","methodName":"statsEcGroupSubsFlow"},
+    {"appName":"STATS_EC_GROUP_FLOW_DAY","className":"StatsEcGroupFlowDay","methodName":"statsEcGroupDay"},
+    {"appName":"STATS_SUBS_FLOW_DAY","className":"StatsSubsFlowDay","methodName":"statsSubsFlowDay"},
+    {"appName":"STATS_EC_GROUP_FLOW_MONTH","className":"StatsEcGroupFlowMonth","methodName":"statsEcGroupFlow"},
+    {"appName":"STATS_PROVSUBSCRIBER_DAY","className":"StatsProvSubscriberDay","methodName":"statsProvSubscriberDay"},
+    {"appName":"STAT_SUBS_SIMFLOW","className":"StatsCmSubsSimFlowDay","methodName":"statsCmSubsSimFlowDay"},
+    {"appName":"STATS_PRODGPRS_WEEK","className":"StatsProdGprsWeek","methodName":"statsProdGprsWeek"},
+    {"appName":"STATS_EC_PRODGPRS_WEEK","className":"StatsEcProdGprsWeek","methodName":"statsEcProdGprsWeek"},
+    {"appName":"CM_SUBS_PRODTOTAL","className":"SubRefalshProd","methodName":"subRefalshProd"},
+    {"appName":"STATS_SUBS_SIMFLOWDAY","className":"StatsSubSimFlowDay","methodName":"statsSubSimflowDay"},
+    {"appName":"STATS_SUBS_SIMFLOWMONTH","className":"StatsSubsFlowMonth","methodName":"statsSubsFlowMonth"},
+    {"appName":"STATS_SUBS_ONLINE_MONTH","className":"StatsSubsOnlineMonth","methodName":"statsSubsOnlineMonth"},
+    {"appName":"STATS_SUBS_ACTIVE_REGION_MONTH","className":"StatsSubsActiveRgnMonth","methodName":"statsSubsActiveRgnMonth"},
+    {"appName":"STATS_EC_FLOW_POOL_USER_MONTH","className":"StatsEcFlowPoolUserMonth","methodName":"statsEcFlowPoolUserMonth"},
+    {"appName":"STATS_INDUSTRY_USERS","className":"StatsIndustryUsersDay","methodName":"statsIndustryUsersDay"},
+    {"appName":"STATS_INDUSTRY_YESTERDAY_GPRSFLOW","className":"StatsIndustryYesterdayGprsFlowDay","methodName":"statsIndustryYesterdayGprsFlowDay"},
+    {"appName":"STATS_SUBS_SIMFLOWDAY_TOP","className":"StatsSubSimFlowDayTop","methodName":"statsSubSimFlowDayTop"},
+    {"appName":"STATS_PROVSUBSCRIBER_WEEK","className":"StatsProvSubscriberWeek","methodName":"statsProvSubscriberWeek"},
+    {"appName":"STATS_SUBSCRIBER_DAY","className":"StatsSubscriberDay","methodName":"statsSubscriberDay"},
+    {"appName":"STATS_EC_GPRS_DAY","className":"StatsEcGprsDay","methodName":"statsEcGprsDay"},
+    {"appName":"STATS_EC_SUBS_DAY","className":"StatsEcSubsDay","methodName":"statsEcSubsDay"},
+    {"appName":"STATS_PERSON_SUBS_DAY","className":"StatsPersonSubsDay","methodName":"statsPersonSubsDay"},
+    {"appName":"STATS_SUBS_GL_ACTIVE_DAY","className":"StatsSubsGlActiveDay","methodName":"statsSubsGlActiveDay"}
+  ],
+  "comments":
+  [
+    {" property":"appName","comment":"必填：调度时需要输入参数的名称，通常情况下填入表名称"},
+    {" property":"className","comment":"必填：处理该表的类的名称"},
+    {" property":"methodName","comment":"必填：在StatsApp中的方法名称"}
+  ]
+}
